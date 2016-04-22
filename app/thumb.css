@@ -1,0 +1,40 @@
+.thumb {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    background: none no-repeat;
+    transition: opacity ease-in-out .3s;
+    flex: 0 0 150px;
+    position: relative;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+.thumb_loaded_yes {
+    opacity: 1;
+}
+
+.thumb__details {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #fff;
+    background-color: rgba(0,0,0,.4);
+    opacity: 0;
+    transition: opacity ease-in-out .2s;
+}
+
+.thumb:hover .thumb__details {
+    opacity: 1;
+}
+
+.thumb__likes, .thumb__comments {
+    margin: 0 20px;
+}
