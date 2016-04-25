@@ -8,15 +8,14 @@ import $ from 'jquery';
 import Gallery from './gallery';
 
 import mainStyle from './main.css';
-
-var instagramClientId = 'xxx';
+import auth from './auth';
 
 class App extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            showUser: 'self', // the only option for sandboxed app
+            showUser: 'love', // the only option for sandboxed app
             token: null
         }
     }
@@ -35,7 +34,7 @@ class App extends React.Component {
     }
 
     loadImages() {
-        this.callAPI('users/' + this.state.showUser + '/media/recent')
+        this.callAPI('tags/' + this.state.showUser + '/media/recent')
             .then((images) => {
                 console.log(images);
                 this.setState({
@@ -76,7 +75,7 @@ class App extends React.Component {
             host: 'api.instagram.com',
             pathname: '/oauth/authorize/',
             query: {
-                client_id: instagramClientId,
+                client_id: auth.instagramClientId,
                 redirect_uri: window.location.href,
                 response_type: 'token',
                 scope: 'public_content'
